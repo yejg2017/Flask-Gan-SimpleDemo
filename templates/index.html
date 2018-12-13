@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+<html>
+
+<head>
+  <title>Layout</title>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <center>Sample Demo Zoc Picture of GAN Model</center>
+    </h1>
+
+    {% block content %}
+
+    {% for message in form.num_samples.errors %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    <form action="" method="post">
+        {{form.csrf}}
+    
+    <div class="input integer">
+        {{ form.num_samples.label }} {{ form.num_samples }}</div>
+    <div class="input bool">
+        {{ form.update.label }} {{ form.update }}</div>
+        
+    <hr>
+        {% if form.update %}
+        <h2>Update Image</h2>
+        <p><img src="./static/demo.jpg"> </p>
+        {% endif %}
+    <div class="input submit">{{ form.submit }} </div>
+    </form>
+    
+    {% endblock %}
+
+  </div>
+</body>
+
+</html>
